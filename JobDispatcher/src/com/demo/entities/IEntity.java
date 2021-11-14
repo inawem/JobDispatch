@@ -7,5 +7,5 @@ import java.util.UUID;
  */
 public interface IEntity {
 	
-	public UUID getGuId();
+	UUID getGuId();
 	}

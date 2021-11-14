@@ -9,8 +9,8 @@ import java.util.*;
  */
 public class Score implements Comparable<Score> {
 	private double score;
-	private UUID handlerGuid;
-	private UUID jobGuid;
+	private UUID handlerGuId;
+	private UUID jobGuId;
 
 	/**
 	 * Gets the score
@@ -35,8 +35,8 @@ public class Score implements Comparable<Score> {
 	 * 
 	 * @return a <code> UUID </code>
 	 */
-	public final UUID getHandlerGuid() {
-		return handlerGuid;
+	public final UUID getHandlerGuId() {
+		return handlerGuId;
 	}
 
 	/**
@@ -44,8 +44,8 @@ public class Score implements Comparable<Score> {
 	 * 
 	 * @param value the GuId
 	 */
-	public final void setHandlerGuid(UUID value) {
-		handlerGuid = value;
+	public final void setHandlerGuId(UUID value) {
+		handlerGuId = value;
 	}
 
 	/**
@@ -53,8 +53,8 @@ public class Score implements Comparable<Score> {
 	 * 
 	 * @return a <code> UUID </code>
 	 */
-	public final UUID getJobGuid() {
-		return jobGuid;
+	public final UUID getJobGuId() {
+		return jobGuId;
 	}
 
 	/**
@@ -62,8 +62,8 @@ public class Score implements Comparable<Score> {
 	 * 
 	 * @param value the UUID
 	 */
-	public final void setJobGuid(UUID value) {
-		jobGuid = value;
+	public final void setJobGuId(UUID value) {
+		jobGuId = value;
 	}
 
 	/**
@@ -73,20 +73,20 @@ public class Score implements Comparable<Score> {
 	 * @param handlerGuId is Driver's GuId
 	 * @param jobGuId     is Job's GuId
 	 * @see #setScore(double)
-	 * @see #setHandlerGuid(GuId)
-	 * @see #setJobGuid(GuId)
+	 * @see #setHandlerGuId(UUID)
+	 * @see #setJobGuId(UUID)
 	 * @author dm
 	 */
 
 	public Score(double score, UUID handlerGuId, UUID jobGuId) {
 		setScore(score);
-		setHandlerGuid(handlerGuId);
-		setJobGuid(jobGuId);
+		setHandlerGuId(handlerGuId);
+		setJobGuId(jobGuId);
 	}
 
 	@Override
 	public String toString() {
-		return String.format("Rank:%1$s for Job%2$s", getHandlerGuid(), getJobGuid());
+		return String.format("Rank:%1$s for Job%2$s", getHandlerGuId(), getJobGuId());
 	}
 
 	@Override

@@ -36,7 +36,7 @@ public final class Calculations {
 	 * @param handler: Drivers information
 	 * @return <code> double </code>
 	 */
-	public static double calcuateScore(Handler handler, Job job) {
+	public static double calculateScore(Handler handler, Job job) {
 		float score = handler.getConsonants();
 		if (job.getStreetNameLength() % 2 == 0) {
 			score = (float) (handler.getVowels() * 1.5);
@@ -45,13 +45,12 @@ public final class Calculations {
 		if (checkCommonFactor(handler.getNameLength(), job.getStreetNameLength())) {
 			score = (float) (score * 1.5);
 		}
-		// System.out.println(String.format("%1$s Score:%2$s for %3$s",
-		// handler.getName(),score, job.getStreetName()));
+		// System.out.println(String.format("%1$s Score:%2$s for %3$s",handler.getName(),score, job.getStreetName()));
 		return score;
 	}
 
 	/**
-	 * Static Method calculate VoWels in a name
+	 * Static Method calculate Vowels in a name
 	 * 
 	 * @param name: String name
 	 * @return <code> int </code>

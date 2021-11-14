@@ -1,10 +1,13 @@
 package main;
 
+import com.demo.entities.Handler;
+import com.demo.entities.Job;
+import com.demo.entities.Score;
+import com.demo.utils.Calculations;
+import com.demo.utils.ReadConsole;
+
 import java.util.ArrayList;
 import java.util.Collections;
-
-import com.demo.entities.*;
-import com.demo.utils.*;
 
 /**
  * This is a main class to read the console for Driver's and Job's file
@@ -20,8 +23,8 @@ public class DispatchApplication {
 	 */
 	public static void main(String[] args) {
 		try {
-			ArrayList<Job> jobs = new ArrayList<Job>();
-			ArrayList<Handler> handlers = new ArrayList<Handler>();
+			ArrayList<Job> jobs = new ArrayList<>();
+			ArrayList<Handler> handlers = new ArrayList<>();
 
 			// Read the Jobs and Handlers
 			ReadConsole.readJobsAndHandlers(jobs, handlers);
@@ -33,7 +36,7 @@ public class DispatchApplication {
 			for (var handler : handlers)
 				System.out.println(handler);
 		} catch (RuntimeException e) {
-			System.out.println("Error occured:" + e);
+			System.out.println("Error occurred:" + e);
 		}
 	}
 
@@ -44,24 +47,27 @@ public class DispatchApplication {
 	 * @param handlers: Drivers ready to pick the jobs
 	 */
 	public static void performDispatch(ArrayList<Job> jobs, ArrayList<Handler> handlers) {
-		ArrayList<Score> scores = new ArrayList<Score>();
+		ArrayList<Score> scores = new ArrayList<>();
 		// Rank the jobs
 		for (var handler : handlers)
 			for (var job : jobs)
-				scores.add(new Score(Calculations.calcuateScore(handler, job), handler.getGuId(), job.getGuId()));
+				scores.add(new Score(Calculations.calculateScore(handler, job),
+						handler.getGuId(),
+						job.getGuId()));
 
 		// Sort the scores
-		Collections.sort(scores, Collections.reverseOrder());
+		scores.sort(Collections.reverseOrder());
 
 		// Assign the jobs to the handlers
 		while (scores.size() > 0) {
 			Score r = scores.stream().findFirst().get();
-			var h = handlers.stream().filter(x -> x.getGuId() == r.getHandlerGuid()).findFirst().get();
-			h.setJob(jobs.stream().filter(x -> x.getGuId() == r.getJobGuid()).findFirst().get());
-			h.setScore(r.getScore());
-
+			var h = handlers.stream().filter(x -> x.getGuId() == r.getHandlerGuId()).findFirst().get();
+			if (h != null) {
+				h.setJob(jobs.stream().filter(x -> x.getGuId() == r.getJobGuId()).findFirst().get());
+				h.setScore(r.getScore());
+			}
 			// Remove mapped job and driver
-			scores.removeIf(x -> x.getHandlerGuid() == r.getHandlerGuid() || x.getJobGuid() == r.getJobGuid());
+			scores.removeIf(x -> x.getHandlerGuId() == r.getHandlerGuId() || x.getJobGuId() == r.getJobGuId());
 		}
 	}
 }

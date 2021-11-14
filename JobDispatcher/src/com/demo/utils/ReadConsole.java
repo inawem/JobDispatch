@@ -1,6 +1,3 @@
-/**
- * com.demo.utils is a group of utils for operating on Dispatch application.
- */
 package com.demo.utils;
 
 import java.io.IOException;
@@ -56,8 +53,8 @@ public final class ReadConsole {
 
 		while (!validFile) {
 			try {
-				String JobsFileLoction = sc.nextLine();
-				Path path = Paths.get(JobsFileLoction);
+				String JobsFileLocation = sc.nextLine();
+				Path path = Paths.get(JobsFileLocation);
 				if (Files.exists(path)) {
 					contents = Files.readString(path);
 					validFile = true;

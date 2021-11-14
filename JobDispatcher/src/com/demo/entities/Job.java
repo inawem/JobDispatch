@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
  */
 public class Job implements IEntity {
 
-	private UUID guId;
+	private final UUID guId;
 	private String streetAddress;
 	private String streetName;
 	private int streetNameLength;

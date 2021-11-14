@@ -10,7 +10,7 @@ import com.demo.utils.Calculations;
  * @author dm
  */
 public class Handler implements IEntity {
-	private UUID guId;
+	private final UUID guId;
 	private String name;
 	private double score;
 	private Job Job;
