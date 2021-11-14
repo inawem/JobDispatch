@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"com.demo.utils","l":"Calculations"},{"p":"main","l":"DispatchApplication"},{"p":"com.demo.entities","l":"Handler"},{"p":"com.demo.entities","l":"IEntity"},{"p":"com.demo.entities","l":"Job"},{"p":"com.demo.utils","l":"ReadConsole"},{"p":"com.demo.entities","l":"Score"}];updateSearchResults();
