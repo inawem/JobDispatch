@@ -106,7 +106,7 @@ public class Handler implements IEntity {
 	 * Sets the Vowels in the Driver's name
 	 */
 	public final void setVowels() {
-		this.vowels = Calculations.CalculateVowels(name);
+		this.vowels = Calculations.calculateVowels(name);
 	}
 
 	/**
@@ -122,7 +122,7 @@ public class Handler implements IEntity {
 	 * Sets the Consonants in Driver's name
 	 */
 	public final void setConsonants() {
-		this.consonants = Calculations.CalculateConsonants(name);
+		this.consonants = Calculations.calculateConsonants(name);
 	}
 
 	/**

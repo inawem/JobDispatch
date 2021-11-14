@@ -24,7 +24,7 @@ public class DispatchApplication {
 			ArrayList<Handler> handlers = new ArrayList<Handler>();
 
 			// Read the Jobs and Handlers
-			ReadConsole.ReadJobsAndHandlers(jobs, handlers);
+			ReadConsole.readJobsAndHandlers(jobs, handlers);
 
 			// Dispatch the Jobs to Handlers
 			performDispatch(jobs, handlers);
@@ -48,7 +48,7 @@ public class DispatchApplication {
 		// Rank the jobs
 		for (var handler : handlers)
 			for (var job : jobs)
-				scores.add(new Score(Calculations.CalcuateScore(handler, job), handler.getGuId(), job.getGuId()));
+				scores.add(new Score(Calculations.calcuateScore(handler, job), handler.getGuId(), job.getGuId()));
 
 		// Sort the scores
 		Collections.sort(scores, Collections.reverseOrder());

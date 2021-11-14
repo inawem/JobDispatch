@@ -24,14 +24,14 @@ public final class ReadConsole {
 	 * @param jobs:     Jobs Street Addresses for the day to dispatch
 	 * @param handlers: Drivers ready to pick the jobs
 	 */
-	public static void ReadJobsAndHandlers(ArrayList<Job> jobs, ArrayList<Handler> handlers) {
+	public static void readJobsAndHandlers(ArrayList<Job> jobs, ArrayList<Handler> handlers) {
 		try (Scanner scanner = new Scanner(System.in)) {
-			var contents = ReadCsvFile("Specify the Jobs file (CSV):", scanner);
+			var contents = readCsvFile("Specify the Jobs file (CSV):", scanner);
 			for (String streetAddress : contents) {
 				jobs.add(new Job(streetAddress));
 			}
 
-			contents = ReadCsvFile("Specify the Drivers file (CSV):", scanner);
+			contents = readCsvFile("Specify the Drivers file (CSV):", scanner);
 			for (String name : contents) {
 				var handler = new Handler(name.trim());
 				if (!handlers.contains(handler))
@@ -49,7 +49,7 @@ public final class ReadConsole {
 	 * @param sc:     System Scanner
 	 * @return a <code> String[]</code>
 	 */
-	public static String[] ReadCsvFile(String message, Scanner sc) {
+	public static String[] readCsvFile(String message, Scanner sc) {
 		System.out.println(message);
 		String contents = "";
 		boolean validFile = false;

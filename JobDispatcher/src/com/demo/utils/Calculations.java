@@ -17,7 +17,7 @@ public final class Calculations {
 	 * @param n2: Second Integer
 	 * @return <code> boolean </code>
 	 */
-	public static boolean CheckCommonFactor(int n1, int n2) {
+	public static boolean checkCommonFactor(int n1, int n2) {
 		if (n1 == 1 || n2 == 1) {
 			return false;
 		}
@@ -36,13 +36,13 @@ public final class Calculations {
 	 * @param handler: Drivers information
 	 * @return <code> double </code>
 	 */
-	public static double CalcuateScore(Handler handler, Job job) {
+	public static double calcuateScore(Handler handler, Job job) {
 		float score = handler.getConsonants();
 		if (job.getStreetNameLength() % 2 == 0) {
 			score = (float) (handler.getVowels() * 1.5);
 		}
 
-		if (CheckCommonFactor(handler.getNameLength(), job.getStreetNameLength())) {
+		if (checkCommonFactor(handler.getNameLength(), job.getStreetNameLength())) {
 			score = (float) (score * 1.5);
 		}
 		// System.out.println(String.format("%1$s Score:%2$s for %3$s",
@@ -56,7 +56,7 @@ public final class Calculations {
 	 * @param name: String name
 	 * @return <code> int </code>
 	 */
-	public static int CalculateVowels(String name) {
+	public static int calculateVowels(String name) {
 		int count = 0;
 		String vowels = "[aeiou]";
 		Pattern r = Pattern.compile(vowels);
@@ -72,7 +72,7 @@ public final class Calculations {
 	 * @param name: String name
 	 * @return <code> int </code>
 	 */
-	public static int CalculateConsonants(String name) {
+	public static int calculateConsonants(String name) {
 		int count = 0;
 		String consonants = "[b-df-hj-np-tv-z]";
 		Pattern r = Pattern.compile(consonants);
