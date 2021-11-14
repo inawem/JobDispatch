@@ -37,22 +37,22 @@ public final class Calculations {
 	public static double CalcuateScore(Handler handler, Job job) {
 		float score = handler.getConsonants();
 		if (job.getStreetNameLength() % 2 == 0) {
-			score = (float) (handler.getVovels() * 1.5);
+			score = (float) (handler.getVowels() * 1.5);
 		}
 
 		if (CheckCommonFactor(handler.getNameLength(), job.getStreetNameLength())) {
 			score = (float) (score * 1.5);
 		}
-		System.out.println(String.format("%1$s Score:%2$s for %3$s", handler.getName(),score, job.getStreetName()));
+		// System.out.println(String.format("%1$s Score:%2$s for %3$s", handler.getName(),score, job.getStreetName()));
 		return score;
 	}
 
 	/**
-	 * Static Method calculate Vovels in a name
+	 * Static Method calculate VoWels in a name
 	 * @param name: String name
 	 * @return <code> int </code>
 	 */
-	public static int CalculateVovels(String name) {
+	public static int CalculateVowels(String name) {
 		int count = 0;
 		String vowels = "[aeiou]";
 		Pattern r = Pattern.compile(vowels);
@@ -63,14 +63,14 @@ public final class Calculations {
 	}
 
 	/**
-	 * Static Method calculate Consonents in a name
+	 * Static Method calculate Consonants in a name
 	 * @param name: String name
 	 * @return <code> int </code>
 	 */
-	public static int CalculateConsonents(String name) {
+	public static int CalculateConsonants(String name) {
 		int count = 0;
-		String consonents = "[b-df-hj-np-tv-z]";
-		Pattern r = Pattern.compile(consonents);
+		String consonants = "[b-df-hj-np-tv-z]";
+		Pattern r = Pattern.compile(consonants);
 		Matcher m = r.matcher(name.toLowerCase());
 		while (m.find())
 			count++;

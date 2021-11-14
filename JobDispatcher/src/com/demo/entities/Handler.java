@@ -14,7 +14,7 @@ public class Handler implements IEntity{
     private double score;
     private Job Job;
     private int nameLength;
-    private int vovels;
+    private int vowels;
     private int consonants;
     
     @Override
@@ -86,18 +86,18 @@ public class Handler implements IEntity{
 	}
 	
 	/**
-	* Gets the Vovels in the Driver's Name
+	* Gets the Vowels in the Driver's Name
 	* @return a <code> int </code>
 	*/
-	public final int getVovels() {
-		return vovels;
+	public final int getVowels() {
+		return vowels;
 	}
 	
 	/**
-	* Sets the Vovels in the Driver's name
+	* Sets the Vowels in the Driver's name
 	*/
-	public final void setVovels() {
-		this.vovels = Calculations.CalculateVovels(name);
+	public final void setVowels() {
+		this.vowels = Calculations.CalculateVowels(name);
 	}
 	
 	/**
@@ -112,14 +112,14 @@ public class Handler implements IEntity{
 	* Sets the Consonants in Driver's name
 	*/
 	public final void setConsonants() {
-		this.consonants = Calculations.CalculateConsonents(name);
+		this.consonants = Calculations.CalculateConsonants(name);
 	}
 
    /**
     * Handler constructor
     * @param name is the name of the Driver
     * @see #setName(String)
-    * @see #setVovels()
+    * @see #setVowels()
     * @see #setConsonants()
     * @see #setNameLength()
     * @author dm
@@ -128,7 +128,7 @@ public class Handler implements IEntity{
 	{
 		guId = UUID.randomUUID();
 		setName(name);
-		setVovels();
+		setVowels();
 		setConsonants();
 		setNameLength();
 	}
@@ -149,8 +149,8 @@ public class Handler implements IEntity{
 	public String toString()
 	{
 		if(getJob()==null)
-			return(String.format("%1$s(%2$s,%3$s,%4$s) No Job allocated", getName(), getNameLength(), getVovels(), getConsonants()));
+			return(String.format("%1$s(%2$s,%3$s,%4$s) No Job allocated", getName(), getNameLength(), getVowels(), getConsonants()));
 		else
-			return(String.format("%1$s(%2$s,%3$s,%4$s) Score:%5$s, Street:%6$s(%7$s)", getName(), getNameLength(), getVovels(), getConsonants(), getScore(), getJob().getStreetName(), getJob().getStreetNameLength()));
+			return(String.format("%1$s(%2$s,%3$s,%4$s) Score:%5$s, Street:%6$s(%7$s)", getName(), getNameLength(), getVowels(), getConsonants(), getScore(), getJob().getStreetName(), getJob().getStreetNameLength()));
 	}
 }

@@ -36,9 +36,9 @@ class DispatchAppTest {
 	}
 	
 	@Test
-	void test1Vovel() {
-		int vovels = h.get(0).getVovels();
-		assertEquals(6,vovels);
+	void test1Vowel() {
+		int vowels = h.get(0).getVowels();
+		assertEquals(6,vowels);
 	}
 	@Test
 	void test1Consonants() {
