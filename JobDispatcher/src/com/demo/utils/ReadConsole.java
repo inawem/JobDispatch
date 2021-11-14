@@ -20,7 +20,8 @@ public final class ReadConsole {
 
 	/**
 	 * Static Method to Read the Jobs and Drivers from the System console
-	 * @param jobs: Jobs Street Addresses for the day to dispatch
+	 * 
+	 * @param jobs:     Jobs Street Addresses for the day to dispatch
 	 * @param handlers: Drivers ready to pick the jobs
 	 */
 	public static void ReadJobsAndHandlers(ArrayList<Job> jobs, ArrayList<Handler> handlers) {
@@ -33,7 +34,7 @@ public final class ReadConsole {
 			contents = ReadCsvFile("Specify the Drivers file (CSV):", scanner);
 			for (String name : contents) {
 				var handler = new Handler(name.trim());
-				if(!handlers.contains(handler))
+				if (!handlers.contains(handler))
 					handlers.add(handler);
 				else
 					System.out.println("****Duplicate Handler found: " + handler.getName());
@@ -41,11 +42,11 @@ public final class ReadConsole {
 		}
 	}
 
-	
 	/**
 	 * Method to Read the CSV file (Only with one column)
-	 * @param message to show the message 
-	 * @param sc: System Scanner
+	 * 
+	 * @param message to show the message
+	 * @param sc:     System Scanner
 	 * @return a <code> String[]</code>
 	 */
 	public static String[] ReadCsvFile(String message, Scanner sc) {

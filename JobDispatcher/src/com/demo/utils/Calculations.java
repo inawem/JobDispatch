@@ -9,9 +9,10 @@ import com.demo.entities.Job;
  * Class to perform various business calculations
  */
 public final class Calculations {
-	
+
 	/**
 	 * Static Method to calculate Common Factor of two numbers
+	 * 
 	 * @param n1: First Integer
 	 * @param n2: Second Integer
 	 * @return <code> boolean </code>
@@ -30,7 +31,8 @@ public final class Calculations {
 
 	/**
 	 * Static Method to calculate the SS for a Driver and a Job
-	 * @param job: Jobs holding the Street Addresses and related data
+	 * 
+	 * @param job:     Jobs holding the Street Addresses and related data
 	 * @param handler: Drivers information
 	 * @return <code> double </code>
 	 */
@@ -43,12 +45,14 @@ public final class Calculations {
 		if (CheckCommonFactor(handler.getNameLength(), job.getStreetNameLength())) {
 			score = (float) (score * 1.5);
 		}
-		// System.out.println(String.format("%1$s Score:%2$s for %3$s", handler.getName(),score, job.getStreetName()));
+		// System.out.println(String.format("%1$s Score:%2$s for %3$s",
+		// handler.getName(),score, job.getStreetName()));
 		return score;
 	}
 
 	/**
 	 * Static Method calculate VoWels in a name
+	 * 
 	 * @param name: String name
 	 * @return <code> int </code>
 	 */
@@ -64,6 +68,7 @@ public final class Calculations {
 
 	/**
 	 * Static Method calculate Consonants in a name
+	 * 
 	 * @param name: String name
 	 * @return <code> int </code>
 	 */
