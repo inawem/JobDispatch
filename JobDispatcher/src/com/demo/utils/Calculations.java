@@ -18,7 +18,7 @@ public final class Calculations {
 	 * @return <code> boolean </code>
 	 */
 	public static boolean checkCommonFactor(int n1, int n2) {
-		if (n1 == 1 || n2 == 1)
+		if (n1 == 1 || n2 == 1 || n1 == n2)
 			return false;
 		
 		for (int i = 2; i <= n1 && i <= n2; ++i)
@@ -44,7 +44,7 @@ public final class Calculations {
 		if (checkCommonFactor(handler.getNameLength(), job.getStreetNameLength()))
 			score = score * 1.5;
 		
-		// System.out.println(String.format("%1$s Score:%2$s for %3$s",handler.getName(),score, job.getStreetName()));
+		 System.out.println(String.format("%1$s Score:%2$s for %3$s",handler.getName(),score, job.getStreetName()));
 		return score;
 	}
 

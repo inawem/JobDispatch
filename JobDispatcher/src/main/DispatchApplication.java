@@ -59,21 +59,20 @@ public class DispatchApplication {
 				scores.add(new Score(Calculations.calculateScore(handler, job),
 						handler.getGuId(),
 						job.getGuId()));
-		
-		Score v = scores.stream().max(Comparator.comparingDouble(Score::getScore)).get();
 
-		// Sort the scores
-		scores.sort(Collections.reverseOrder());
-
-		// Assign the jobs to the handlers
 		while (scores.size() > 0) {
-			Score r = scores.stream().findFirst().get();
+			// Get the highest score
+			Score r = scores.stream().max(Comparator.comparingDouble(Score::getScore)).get();
+			
+			// Get the first driver with the highest score
 			var h = handlers.stream().filter(x -> x.getGuId() == r.getHandlerGuId()).findFirst().get();
+			
+			// Allocate the job to that driver
 			if (h != null) {
 				h.setJob(jobs.stream().filter(x -> x.getGuId() == r.getJobGuId()).findFirst().get());
 				h.setScore(r.getScore());
 			}
-			// Remove mapped job and driver
+			// Remove mapped job and driver from the list
 			scores.removeIf(x -> x.getHandlerGuId() == r.getHandlerGuId() || x.getJobGuId() == r.getJobGuId());
 		}
 	}
