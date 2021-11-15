@@ -44,7 +44,7 @@ public final class Calculations {
 		if (checkCommonFactor(handler.getNameLength(), job.getStreetNameLength()))
 			score = score * 1.5;
 		
-		 System.out.println(String.format("%1$s Score:%2$s for %3$s",handler.getName(),score, job.getStreetName()));
+		 // System.out.println(String.format("%1$s Score:%2$s for %3$s",handler.getName(),score, job.getStreetName()));
 		return score;
 	}
 
