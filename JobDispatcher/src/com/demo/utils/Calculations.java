@@ -18,14 +18,13 @@ public final class Calculations {
 	 * @return <code> boolean </code>
 	 */
 	public static boolean checkCommonFactor(int n1, int n2) {
-		if (n1 == 1 || n2 == 1) {
+		if (n1 == 1 || n2 == 1)
 			return false;
-		}
-		for (int i = 2; i <= n1 && i <= n2; ++i) {
-			if (n1 % i == 0 && n2 % i == 0) {
+		
+		for (int i = 2; i <= n1 && i <= n2; ++i)
+			if (n1 % i == 0 && n2 % i == 0)
 				return true;
-			}
-		}
+		
 		return false;
 	}
 
@@ -37,14 +36,14 @@ public final class Calculations {
 	 * @return <code> double </code>
 	 */
 	public static double calculateScore(Handler handler, Job job) {
-		float score = handler.getConsonants();
-		if (job.getStreetNameLength() % 2 == 0) {
-			score = (float) (handler.getVowels() * 1.5);
-		}
+		double score = handler.getConsonants();
+		
+		if (job.getStreetNameLength() % 2 == 0)
+			score = handler.getVowels() * 1.5;
 
-		if (checkCommonFactor(handler.getNameLength(), job.getStreetNameLength())) {
-			score = (float) (score * 1.5);
-		}
+		if (checkCommonFactor(handler.getNameLength(), job.getStreetNameLength()))
+			score = score * 1.5;
+		
 		// System.out.println(String.format("%1$s Score:%2$s for %3$s",handler.getName(),score, job.getStreetName()));
 		return score;
 	}
@@ -58,10 +57,9 @@ public final class Calculations {
 	public static int calculateVowels(String name) {
 		int count = 0;
 		String vowels = "[aeiou]";
-		Pattern r = Pattern.compile(vowels);
-		Matcher m = r.matcher(name.toLowerCase());
-		while (m.find())
-			count++;
+		Pattern p = Pattern.compile(vowels);
+		Matcher m = p.matcher(name.toLowerCase());
+		while (m.find()) count++;
 		return count;
 	}
 
@@ -74,10 +72,9 @@ public final class Calculations {
 	public static int calculateConsonants(String name) {
 		int count = 0;
 		String consonants = "[b-df-hj-np-tv-z]";
-		Pattern r = Pattern.compile(consonants);
-		Matcher m = r.matcher(name.toLowerCase());
-		while (m.find())
-			count++;
+		Pattern p = Pattern.compile(consonants);
+		Matcher m = p.matcher(name.toLowerCase());
+		while (m.find()) count++;
 		return count;
 	}
 }
