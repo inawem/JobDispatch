@@ -7,7 +7,7 @@ import java.util.*;
  *
  * @author dm
  */
-public class Score implements Comparable<Score> {
+public class Score {
 	private double score;
 	private UUID handlerGuId;
 	private UUID jobGuId;
@@ -89,8 +89,5 @@ public class Score implements Comparable<Score> {
 		return String.format("Rank:%1$s for Job%2$s", getHandlerGuId(), getJobGuId());
 	}
 
-	@Override
-	public int compareTo(Score o) {
-		return (int) ((this.getScore()) - (o.getScore()));
-	}
+
 }
