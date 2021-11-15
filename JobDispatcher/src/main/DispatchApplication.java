@@ -7,7 +7,11 @@ import com.demo.utils.Calculations;
 import com.demo.utils.ReadConsole;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * This is a main class to read the console for Driver's and Job's file
@@ -48,12 +52,15 @@ public class DispatchApplication {
 	 */
 	public static void performDispatch(ArrayList<Job> jobs, ArrayList<Handler> handlers) {
 		ArrayList<Score> scores = new ArrayList<>();
+		
 		// Rank the jobs
 		for (var handler : handlers)
 			for (var job : jobs)
 				scores.add(new Score(Calculations.calculateScore(handler, job),
 						handler.getGuId(),
 						job.getGuId()));
+		
+		Score v = scores.stream().max(Comparator.comparingDouble(Score::getScore)).get();
 
 		// Sort the scores
 		scores.sort(Collections.reverseOrder());
